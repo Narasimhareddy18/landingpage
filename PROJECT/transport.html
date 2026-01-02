@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transport Delay Prediction System</title>
+
+<style>
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#2c2c2c;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#1e3a8a;
+    color:white;
+    padding:28px;
+    text-align:center;
+}
+
+header h1{
+    font-size:2.2rem;
+}
+
+header p{
+    margin-top:6px;
+    font-size:1rem;
+    opacity:0.9;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title{
+    text-align:center;
+    font-size:1.8rem;
+    color:#1e3a8a;
+    margin-bottom:25px;
+}
+
+/* ===== FEATURES ===== */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.feature{
+    background:white;
+    padding:22px;
+    border-radius:10px;
+    border-left:5px solid #1e3a8a;
+    box-shadow:0 6px 14px rgba(0,0,0,0.08);
+    animation:fadeSlide 0.8s ease forwards;
+}
+
+.feature h3{
+    margin-bottom:8px;
+    color:#1e3a8a;
+}
+
+/* ===== FORM ===== */
+.form-box{
+    margin-top:45px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
+}
+
+.form-box h2{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:20px;
+}
+
+.form-box input,
+.form-box select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.form-box button{
+    width:100%;
+    margin-top:10px;
+    padding:14px;
+    background:#1e3a8a;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:1rem;
+    cursor:pointer;
+}
+
+.form-box button:hover{
+    background:#16306d;
+}
+
+/* ===== UNIQUE FEATURES ===== */
+.unique{
+    margin-top:50px;
+}
+
+.unique-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.unique-item{
+    background:#eef2ff;
+    padding:18px;
+    border-radius:10px;
+    border:1px solid #dbe3ff;
+}
+
+.unique-item h4{
+    color:#1e3a8a;
+    margin-bottom:6px;
+}
+
+/* ===== STATUS ===== */
+.status{
+    margin-top:50px;
+}
+
+.status-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 6px 14px rgba(0,0,0,0.1);
+}
+
+.status-table th,
+.status-table td{
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+.status-table th{
+    background:#1e3a8a;
+    color:white;
+}
+
+.progress{
+    height:8px;
+    background:#ddd;
+    border-radius:4px;
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:#1e3a8a;
+}
+
+/* ===== BACK ===== */
+.back{
+    display:block;
+    margin-top:35px;
+    text-align:center;
+    text-decoration:none;
+    font-weight:bold;
+    color:#1e3a8a;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeSlide{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Transport Delay Prediction System</h1>
+    <p>Reliable arrival forecasting using data + passenger intelligence</p>
+</header>
+
+<div class="container">
+
+    <!-- CORE FEATURES -->
+    <div class="section-title">Core Capabilities</div>
+    <div class="features">
+        <div class="feature">
+            <h3>AI Delay Forecasting</h3>
+            <p>Predicts delays using historical schedules, traffic and weather.</p>
+        </div>
+        <div class="feature">
+            <h3>Route Sensitivity Analysis</h3>
+            <p>Identifies congestion-prone and high-risk segments.</p>
+        </div>
+        <div class="feature">
+            <h3>Passenger Assisted Accuracy</h3>
+            <p>Live passenger inputs refine predictions.</p>
+        </div>
+        <div class="feature">
+            <h3>Continuous Update Engine</h3>
+            <p>Delay recalculated dynamically during travel.</p>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-box">
+        <h2>Predict Delay</h2>
+
+        <input type="text" placeholder="Transport Number / Route ID">
+        <input type="text" placeholder="Source Location">
+        <input type="text" placeholder="Destination Location">
+
+        <select>
+            <option>Time Slot</option>
+            <option>Morning Peak</option>
+            <option>Mid-Day</option>
+            <option>Evening Peak</option>
+            <option>Night</option>
+        </select>
+
+        <select>
+            <option>Weather Condition</option>
+            <option>Clear</option>
+            <option>Rain</option>
+            <option>Fog / Storm</option>
+        </select>
+
+        <button onclick="predict()">Generate Prediction</button>
+    </div>
+
+    <!-- UNIQUE FEATURES -->
+    <div class="unique">
+        <div class="section-title">Unique Research Features</div>
+        <div class="unique-grid">
+
+            <div class="unique-item">
+                <h4>Crowd-Verified Confidence Score</h4>
+                <p>Combines AI output and passenger validation.</p>
+            </div>
+
+            <div class="unique-item">
+                <h4>What-If Delay Simulator</h4>
+                <p>Simulates traffic, weather and peak-hour effects.</p>
+            </div>
+
+            <div class="unique-item">
+                <h4>Last-Mile Risk Indicator</h4>
+                <p>Predicts delays after reaching destination city.</p>
+            </div>
+
+            <div class="unique-item">
+                <h4>Passenger Pulse Feedback</h4>
+                <p>Live crowd sentiment: Smooth / Crowded / Delayed.</p>
+            </div>
+
+            <div class="unique-item">
+                <h4>Adaptive Alert Threshold</h4>
+                <p>Alerts only when delay exceeds personal tolerance.</p>
+            </div>
+
+            <div class="unique-item">
+                <h4>Green Impact Estimator</h4>
+                <p>Shows extra fuel use and carbon emissions.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- STATUS -->
+    <div class="status">
+        <div class="section-title">Prediction Summary</div>
+        <table class="status-table">
+            <tr>
+                <th>Metric</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>Predicted Delay</td>
+                <td>12 Minutes</td>
+            </tr>
+            <tr>
+                <td>Confidence Level</td>
+                <td>
+                    <div class="progress"><span style="width:85%"></span></div>
+                    85%
+                </td>
+            </tr>
+            <tr>
+                <td>Passenger Pulse</td>
+                <td>Crowded</td>
+            </tr>
+            <tr>
+                <td>Environmental Impact</td>
+                <td>+1.9 kg CO₂</td>
+            </tr>
+        </table>
+    </div>
+
+    <a href="landingpage.html" class="back">⬅ Back to Dashboard</a>
+
+</div>
+
+<script>
+function predict(){
+    alert("Prediction generated using AI + passenger data");
+}
+</script>
+
+</body>
+</html>

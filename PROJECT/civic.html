@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Civic Issues Management</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+*{
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+    margin:0;
+    background: linear-gradient(135deg,#89f7fe,#66a6ff);
+    color:#333;
+    overflow-x:hidden;
+}
+
+/* ---------- HEADER ---------- */
+header{
+    background: linear-gradient(120deg,#1b5e20,#43a047);
+    color:#fff;
+    padding:40px 20px;
+    text-align:center;
+    animation: slideDown 1s ease;
+}
+
+header h1{
+    margin:0;
+    font-size:2.7rem;
+}
+
+header p{
+    margin-top:10px;
+    font-size:1.1rem;
+    opacity:0.9;
+}
+
+@keyframes slideDown{
+    from{transform:translateY(-60px);opacity:0;}
+    to{transform:translateY(0);opacity:1;}
+}
+
+/* ---------- CONTAINER ---------- */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+/* ---------- FEATURES ---------- */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    margin-bottom:60px;
+}
+
+.feature-card{
+    background:rgba(255,255,255,0.9);
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    text-align:center;
+    transition:0.4s;
+    animation: fadeUp 1s ease;
+}
+
+.feature-card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 25px 45px rgba(0,0,0,0.3);
+}
+
+.feature-card h3{
+    color:#2e7d32;
+    margin-bottom:10px;
+    font-size:1.4rem;
+}
+
+.feature-card p{
+    font-size:0.95rem;
+    line-height:1.6;
+}
+
+/* ---------- REPORT FORM ---------- */
+.report-form{
+    background:linear-gradient(135deg,#ffffff,#e8f5e9);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
+    animation: fadeUp 1.2s ease;
+}
+
+.report-form h2{
+    text-align:center;
+    color:#1b5e20;
+    margin-bottom:10px;
+}
+
+.report-form .hint{
+    text-align:center;
+    font-size:0.9rem;
+    color:#555;
+    margin-bottom:25px;
+}
+
+.report-form input,
+.report-form select,
+.report-form textarea{
+    width:100%;
+    padding:14px;
+    margin:12px 0;
+    border-radius:10px;
+    border:1px solid #bbb;
+    font-size:1rem;
+}
+
+.report-form textarea{
+    resize:none;
+    height:110px;
+}
+
+.report-form button{
+    width:100%;
+    padding:16px;
+    background:linear-gradient(120deg,#2e7d32,#66bb6a);
+    color:#fff;
+    border:none;
+    font-size:1.1rem;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+.report-form button:hover{
+    transform:scale(1.05);
+    background:linear-gradient(120deg,#1b5e20,#43a047);
+}
+
+/* ---------- TIPS ---------- */
+.tips{
+    margin-top:40px;
+    background:rgba(255,255,255,0.9);
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 12px 25px rgba(0,0,0,0.2);
+}
+
+.tips h3{
+    color:#2e7d32;
+    margin-bottom:10px;
+}
+
+.tips ul{
+    padding-left:20px;
+}
+
+.tips li{
+    margin:8px 0;
+    font-size:0.95rem;
+}
+
+/* ---------- STATUS TABLE ---------- */
+.status-section{
+    margin-top:60px;
+    animation: fadeUp 1.4s ease;
+}
+
+.status-section h2{
+    text-align:center;
+    color:#1b5e20;
+    margin-bottom:20px;
+}
+
+.status-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 15px 30px rgba(0,0,0,0.25);
+}
+
+.status-table th,
+.status-table td{
+    padding:15px;
+    text-align:center;
+}
+
+.status-table th{
+    background:#2e7d32;
+    color:#fff;
+}
+
+.status-table tr:nth-child(even){
+    background:#f1f8f4;
+}
+
+.badge{
+    padding:6px 14px;
+    border-radius:20px;
+    color:#fff;
+    font-size:0.85rem;
+    animation:pulse 1.5s infinite;
+}
+
+.pending{background:#f9a825;}
+.progress{background:#fb8c00;}
+.resolved{background:#2e7d32;animation:none;}
+
+@keyframes pulse{
+    0%{opacity:1;}
+    50%{opacity:0.6;}
+    100%{opacity:1;}
+}
+
+/* ---------- BACK BUTTON ---------- */
+.back-btn{
+    display:block;
+    text-align:center;
+    margin:50px auto 0;
+    text-decoration:none;
+    font-weight:bold;
+    color:#1b5e20;
+    font-size:1rem;
+}
+
+.back-btn:hover{
+    text-decoration:underline;
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:768px){
+    header h1{font-size:2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏙️ Civic Issues Management System</h1>
+    <p>Smart reporting, faster action, better cities</p>
+</header>
+
+<div class="container">
+
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feature-card">
+            <h3>🚧 Smart Issue Reporting</h3>
+            <p>Citizens can easily report potholes, garbage, drainage and streetlight issues.</p>
+        </div>
+        <div class="feature-card">
+            <h3>📍 Geo-Location Tracking</h3>
+            <p>Issues are tagged with area details for quick municipal response.</p>
+        </div>
+        <div class="feature-card">
+            <h3>⏱️ Real-Time Status</h3>
+            <p>Monitor progress: Pending, In-Progress or Resolved with live updates.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🏛️ Department Assignment</h3>
+            <p>Automatically routes complaints to the concerned civic authority.</p>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="report-form">
+        <h2>Report a Civic Issue</h2>
+        <p class="hint">Fields marked are recommended for faster resolution</p>
+
+        <input type="text" placeholder="👤 Your Name (Recommended)">
+        <input type="text" placeholder="📞 Contact Number (Recommended)">
+        <input type="text" placeholder="📍 Location / Area *">
+
+        <select>
+            <option>Select Issue Type *</option>
+            <option>Pothole</option>
+            <option>Garbage Overflow</option>
+            <option>Water Leakage</option>
+            <option>Street Light Issue</option>
+            <option>Drainage Problem</option>
+        </select>
+
+        <select>
+            <option>Urgency Level</option>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select>
+
+        <textarea placeholder="📝 Describe the issue clearly *"></textarea>
+
+        <button onclick="submitIssue()">Submit Issue</button>
+    </div>
+
+    <!-- TIPS -->
+    <div class="tips">
+        <h3>✅ Recommended While Reporting</h3>
+        <ul>
+            <li>Provide exact location details</li>
+            <li>Mention nearby landmarks</li>
+            <li>Select correct issue type</li>
+            <li>Use urgency wisely</li>
+        </ul>
+    </div>
+
+    <!-- STATUS -->
+    <div class="status-section">
+        <h2>Reported Issues Status</h2>
+        <table class="status-table">
+            <tr>
+                <th>Issue ID</th>
+                <th>Issue</th>
+                <th>Location</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>201</td>
+                <td>Pothole</td>
+                <td>Main Road</td>
+                <td><span class="badge progress">In Progress</span></td>
+            </tr>
+            <tr>
+                <td>202</td>
+                <td>Garbage</td>
+                <td>Market Area</td>
+                <td><span class="badge pending">Pending</span></td>
+            </tr>
+            <tr>
+                <td>203</td>
+                <td>Street Light</td>
+                <td>Park Street</td>
+                <td><span class="badge resolved">Resolved</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <a href="landingpage.html" class="back-btn">⬅ Back to Dashboard</a>
+</div>
+
+<script>
+function submitIssue(){
+    alert("✅ Issue submitted successfully! Authorities will review it soon.");
+}
+</script>
+
+</body>
+</html>

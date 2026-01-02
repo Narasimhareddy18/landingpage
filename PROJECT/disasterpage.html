@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Disaster Management Portal</title>
+
+<style>
+/* ---------- RESET & GLOBAL ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #0f2027;
+    color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+/* ---------- NAVBAR ---------- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+nav h2 {
+    font-size: 1.3rem;
+    color: #ffda79;
+}
+
+nav button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #ffda79;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(-45deg, #ff512f, #dd2476, #1fa2ff, #12d8fa);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+    font-size: 3rem;
+    max-width: 900px;
+    animation: fadeDown 1.2s ease;
+    color: #fff;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+}
+
+.hero p {
+    margin-top: 18px;
+    font-size: 1.2rem;
+    max-width: 750px;
+    line-height: 1.6;
+    animation: fadeUp 1.5s ease;
+    color: #fff;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+}
+
+.hero button {
+    margin-top: 35px;
+    padding: 14px 36px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #fff;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.hero button:hover {
+    transform: scale(1.08);
+    background: #000;
+    color: #fff;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- ALERT TICKER ---------- */
+.ticker {
+    background: #ff3b3b;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.ticker span {
+    display: inline-block;
+    white-space: nowrap;
+    animation: tickerMove 16s linear infinite;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+@keyframes tickerMove {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ---------- SECTIONS ---------- */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    color: #ffda79;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+/* ---------- CARDS ---------- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 28px;
+    border-radius: 16px;
+    transition: 0.4s;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.03);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    color: #ffd56b;
+    font-size: 1.4rem;
+}
+
+/* ---------- HELPLINE ---------- */
+.helpline {
+    background: #111;
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 2px solid #ffda79;
+}
+
+.helpline p {
+    font-size: 1.2rem;
+    margin: 8px 0;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    background: #000;
+    text-align: center;
+    padding: 18px;
+    font-size: 0.9rem;
+    color: #ccc;
+    border-top: 2px solid #ffda79;
+}
+
+/* ---------- SCROLL REVEAL ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+    nav h2 { font-size: 1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>Disaster Risk Portal</h2>
+    <button onclick="window.location.href='landingpage.html'">⬅ Dashboard</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>National Disaster Risk & Alert System</h1>
+    <p>
+        A unified digital platform to monitor disasters, issue early warnings,
+        guide citizens, and coordinate emergency response nationwide.
+    </p>
+    <button onclick="scrollToSection()">View Risk Alerts</button>
+</section>
+
+<!-- ALERT TICKER -->
+<div class="ticker">
+    <span>
+        ⚠️ Flood Alert in Coastal Regions | 🌪 Cyclone Watch Issued |
+        🔥 Heatwave Warning | 🌧 Heavy Rainfall Expected
+    </span>
+</div>
+
+<!-- DISASTER ALERTS -->
+<section class="section reveal" id="alerts">
+    <h2>Major Disaster Risk Alerts</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>🌊 Floods</h3>
+            <p>Real-time river level monitoring and flood alerts for vulnerable zones.</p>
+        </div>
+        <div class="card">
+            <h3>🌪 Cyclones</h3>
+            <p>Early cyclone detection with evacuation and safety advisories.</p>
+        </div>
+        <div class="card">
+            <h3>🔥 Heatwaves</h3>
+            <p>Extreme temperature warnings to reduce heat-related casualties.</p>
+        </div>
+        <div class="card">
+            <h3>⛰ Landslides</h3>
+            <p>Risk analysis for hilly regions during heavy rainfall seasons.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PREPAREDNESS -->
+<section class="section reveal">
+    <h2>Citizen Preparedness & Safety</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Emergency Kits</h3>
+            <p>Guidelines for food, water, medicines, and essential supplies.</p>
+        </div>
+        <div class="card">
+            <h3>Evacuation Plans</h3>
+            <p>Safe evacuation routes and shelter locations for each region.</p>
+        </div>
+        <div class="card">
+            <h3>Community Training</h3>
+            <p>Public awareness programs and mock drills for disaster readiness.</p>
+        </div>
+    </div>
+</section>
+
+<!-- HELPLINE -->
+<section class="helpline reveal">
+    <h2>Emergency Helpline</h2>
+    <p>📞 National Emergency Number: <strong>112</strong></p>
+    <p>📞 Disaster Management Authority: <strong>1078</strong></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2025 National Disaster Management Portal | Designed for Public Safety
+</footer>
+
+<script>
+/* ---------- SCROLL BUTTON ---------- */
+function scrollToSection() {
+    document.getElementById("alerts").scrollIntoView({ behavior: "smooth" });
+}
+
+/* ---------- SCROLL REVEAL ---------- */
+window.addEventListener("scroll", () => {
+    document.querySelectorAll(".reveal").forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CIVITRA | Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI,system-ui;
+    background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
+    animation:bg 15s infinite ease;
+}
+@keyframes bg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+header{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 60px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(12px);
+}
+nav a{
+    margin-left:30px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+}
+.hero{
+    min-height:85vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+.hero h1{
+    font-size:3.5rem;
+}
+.hero span{color:#00e5ff}
+.hero p{
+    max-width:700px;
+    margin:20px auto;
+    opacity:0.9;
+}
+.hero button{
+    padding:14px 36px;
+    border:none;
+    border-radius:30px;
+    font-weight:700;
+    cursor:pointer;
+    background:linear-gradient(90deg,#00e5ff,#00ffb2);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>CIVITRA</h2>
+<nav>
+<a href="home.html">Home</a>
+<a href="about.html">About</a>
+<a href="platform.html">Platform</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1>Civic Intelligence for <span>Smart Cities</span></h1>
+<p>
+AI-powered governance platform for disaster prediction,
+transport intelligence, and civic risk alerts.
+</p>
+<button onclick="alert('Demo Request Sent')">Request Demo</button>
+</div>
+</section>
+
+</body>
+</html>
